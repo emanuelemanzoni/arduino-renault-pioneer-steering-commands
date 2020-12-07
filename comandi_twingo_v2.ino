@@ -15,17 +15,21 @@ byte output[3][3] = {
 };
 
 void next() {                               //function for next track
-  Serial.print("up ");
-  //digitalWrite(output[2][2], HIGH);
-  delay(10000);
-  //digitalWrite(output[2][2], LOW);
+  //Serial.print("up ");
+  //Serial.print(output[2][0]);
+  digitalWrite(output[2][0], HIGH);
+  delay(50);
+  digitalWrite(output[2][0], LOW);
+  delay(500);
 }
 
 void prev() {                               //function for previous track
-  Serial.print("down");
-  //digitalWrite(output[2][0], HIGH);
-  //delay(1000);
-  //digitalWrite(output[2][0], LOW);
+  //Serial.print("down");
+  //Serial.print(output[2][2]);
+  digitalWrite(output[2][2], HIGH);
+  delay(50);
+  digitalWrite(output[2][2], LOW);
+  delay(500);
 }
 
 void ordinary(byte i) {                     //function for buttons (L0, L1)
@@ -33,8 +37,8 @@ void ordinary(byte i) {                     //function for buttons (L0, L1)
     delayMicroseconds(5);
     if (digitalRead(IN[j]) == 0) {
       digitalWrite(output[i][j], HIGH);
-      Serial.print("\n output:");
-      Serial.print(output[i][j]);
+      //Serial.print("\n output:");
+      //Serial.print(output[i][j]);
       while (digitalRead(IN[j]) == LOW)
         delay(40);
     }
